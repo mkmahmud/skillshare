@@ -66,7 +66,7 @@ const Navbar = () => {
             ) : (
               <>
                 <Link
-                  href="/profile"
+                  href="/dashboard"
                   className="hidden lg:block lg:text-sm lg:font-semibold lg:leading-6 lg:text-gray-900"
                 >
                   <FaUserCircle className="h-6 w-6 text-gray-700" />
@@ -125,7 +125,7 @@ const Navbar = () => {
                   </button>
                   <button>
                     <Link
-                      href="/profile"
+                      href="/dashboard"
                       className=" "
                     >
                       <FaUserCircle className="h-6 w-6 text-gray-700" />
