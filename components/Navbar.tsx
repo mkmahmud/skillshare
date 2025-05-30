@@ -9,6 +9,9 @@ import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
 import Image from "next/image";
 
+import { FaUserCircle } from "react-icons/fa";
+
+
 const Navbar = () => {
   const { data: session }: any = useSession();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,56 +23,17 @@ const Navbar = () => {
 
   return (
     <>
-      {/*
-    <div>
-      <ul className="flex justify-between m-10 item-center">
-        <div>
-          <Link href="/">
-            <li>Home</li>
-          </Link>
-        </div>
-        <div className="flex gap-10">
-          <Link href="/dashboard">
-            <li>Dashboard</li>
-          </Link>
-          {!session ? (
-            <>
-              <Link href="/login">
-                <li>Login</li>
-              </Link>
-              <Link href="/register">
-                <li>Register</li>
-              </Link>
-            </>
-          ) : (
-            <>
-              {session.user?.email}
-              <li>
-                <button
-                  onClick={() => {
-                    signOut();
-                  }}
-                  className="p-2 px-5 -mt-1 bg-blue-800 rounded-full"
-                >
-                  Logout
-                </button>
-              </li>
-            </>
-          )}
-        </div>
-      </ul>
-    </div>
-                */}
 
-      <header className="bg-white">
+
+      <header className="  h-[60px] sticky top-4 z-50">
         <nav
-          className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-6 lg:px-8"
+          className="mx-auto flex max-w-7xl items-center justify-between gap-x-4 px-6 lg:px-8"
           aria-label="Global"
         >
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <Image src="/logo 1.png" width={50} height={50} alt="star logo" />
+              <Image src="/assets/logo.png" width={50} height={50} alt="star logo" />
             </Link>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
@@ -101,13 +65,18 @@ const Navbar = () => {
               </>
             ) : (
               <>
-                <span className="ml-10 text-sm">{session.user?.email}</span>
+                <Link
+                  href="/profile"
+                  className="hidden lg:block lg:text-sm lg:font-semibold lg:leading-6 lg:text-gray-900"
+                >
+                  <FaUserCircle className="h-6 w-6 text-gray-700" />
+                </Link>
 
                 <button
                   onClick={() => {
                     signOut();
                   }}
-                  className="hidden lg:block lg:text-sm lg:font-semibold lg:leading-6 lg:text-gray-900"
+                  className="  hidden lg:block lg:text-sm lg:font-semibold lg:leading-6 lg:text-red-600"
                 >
                   Log out
                 </button>
@@ -139,19 +108,30 @@ const Navbar = () => {
                 <Image
                   width={50}
                   height={50}
-                  src="/logo 1.png"
+                  src="/assets/logo.png"
                   alt="star logo mobile"
                 />
               </Link>
               {session ? (
-                <button
-                  onClick={() => {
-                    signOut();
-                  }}
-                  className="ml-auto rounded-md bg-black border border-1 border-gray-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                  Log out
-                </button>
+                <>
+
+                  <button
+                    onClick={() => {
+                      signOut();
+                    }}
+                    className="ml-auto rounded-md bg-black border border-1 border-gray-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Log out
+                  </button>
+                  <button>
+                    <Link
+                      href="/profile"
+                      className=" "
+                    >
+                      <FaUserCircle className="h-6 w-6 text-gray-700" />
+                    </Link>
+                  </button>
+                </>
               ) : (
                 <Link
                   href="/register"
