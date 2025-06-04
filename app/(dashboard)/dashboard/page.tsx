@@ -79,6 +79,9 @@ const Dashboard = () => {
             <h2 className="text-sm font-bold">Web Developer</h2>
           </div>
           <div>
+            <h2 className="text-sm">90% Completed</h2>
+          </div>
+          <div>
             <label className="inline-flex items-center cursor-pointer">
               <input type="checkbox" className="sr-only peer" />
               <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-500 rounded-full peer peer-checked:bg-blue-600 transition-colors duration-300"></div>
